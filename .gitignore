@@ -1,0 +1,51 @@
+# Python & Virtual Environments
+venv/
+backend/venv/
+__pycache__/
+*/__pycache__/
+*/*/__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite3
+*.db
+backend/*.db
+
+# Temporary & Storage files
+backend/storage/*
+!backend/storage/.gitkeep
+backend/test_tmp/
+*.log
+
+# Node.js & Web Frontend
+node_modules/
+web/node_modules/
+web/dist/
+dist/
+.env.local
+.env.*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Android
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+android/*.iml
+android/app/*.iml
+*.apk
+*.aab
+*.hprof
+
+# iOS
+ios/Pods/
+ios/*.xcworkspace/xcuserdata
+ios/*.xcodeproj/xcuserdata
+ios/.build/
+DerivedData/
+
+# OS generated files
+.DS_Store
+Thumbs.db
