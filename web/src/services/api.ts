@@ -1,11 +1,10 @@
 import axios from 'axios';
 
-// Smart API Base: Uses custom VITE_API_BASE_URL if set, or relative path on dev port 3000, or direct 127.0.0.1:8000
+// Smart API Base: Uses custom VITE_API_BASE_URL if set, or local dev port, or live Render production backend
 const API_BASE = (import.meta as any).env?.VITE_API_BASE_URL
-  ? (import.meta as any).env.VITE_API_BASE_URL
-  : ((typeof window !== 'undefined' && window.location.port === '3000') 
-      ? '' 
-      : 'http://127.0.0.1:8000');
+  || ((typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'))
+      ? (window.location.port === '3000' ? '' : 'http://127.0.0.1:8000')
+      : 'https://pdf-suite-hopj.onrender.com');
 
 export const api = axios.create({
   baseURL: API_BASE,
@@ -167,8 +166,7 @@ export const convertService = {
   },
 
   getDownloadUrl(filename: string) {
-    const base = API_BASE || (typeof window !== 'undefined' ? window.location.origin : 'http://127.0.0.1:8000');
-    return `${base}/api/v1/convert/download/${filename}`;
+    return `${API_BASE}/api/v1/convert/download/${filename}`;
   }
 };
 
