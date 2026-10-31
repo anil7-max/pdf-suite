@@ -97,27 +97,27 @@ export const PaywallModal: React.FC<PaywallModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xl animate-fade-in">
-      <div className="relative bg-slate-900/95 border border-amber-500/25 rounded-3xl shadow-[0_0_80px_rgba(245,158,11,0.25)] max-w-xl w-full overflow-hidden text-white backdrop-blur-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-black/85 backdrop-blur-xl animate-fade-in">
+      <div className="relative bg-slate-900/95 border border-amber-500/25 rounded-2xl sm:rounded-3xl shadow-[0_0_80px_rgba(245,158,11,0.25)] max-w-xl w-full max-h-[92vh] flex flex-col overflow-hidden text-white backdrop-blur-2xl">
         {/* Glow ambient background orbs */}
         <div className="absolute -top-24 -right-24 w-60 h-60 bg-amber-500/20 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-24 -left-24 w-60 h-60 bg-rose-500/20 rounded-full blur-3xl pointer-events-none" />
 
         {/* Top Header */}
-        <div className="p-6 border-b border-white/10 relative z-10 flex items-start justify-between">
+        <div className="p-4 sm:p-6 border-b border-white/10 relative z-10 flex items-start justify-between flex-shrink-0">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1.5">
               <Sparkles className="w-3.5 h-3.5" />
               100% Free & Open-Source
             </div>
-            <h2 className="text-2xl font-black text-white flex items-center gap-2">
-              Earn Free Conversion Tokens
-              <span className="text-xs px-2.5 py-1 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-300 font-bold flex items-center gap-1">
-                <Coins className="w-3.5 h-3.5 text-amber-400" /> {balance} Tokens Available
+            <h2 className="text-lg sm:text-2xl font-black text-white flex flex-wrap items-center gap-1.5 sm:gap-2">
+              <span>Earn Free Tokens</span>
+              <span className="text-[11px] sm:text-xs px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-300 font-bold flex items-center gap-1">
+                <Coins className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400" /> {balance} Tokens
               </span>
             </h2>
             <p className="text-slate-400 text-xs mt-1">
-              {triggerReason || "Complete quick, simple tasks to earn conversion tokens. Zero payments required!"}
+              {triggerReason || "Complete quick tasks to earn tokens. Zero payments required!"}
             </p>
           </div>
           <button 

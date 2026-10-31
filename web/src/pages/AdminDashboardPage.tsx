@@ -147,43 +147,43 @@ export const AdminDashboardPage: React.FC<AdminDashboardPageProps> = ({ onBack, 
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="max-w-7xl mx-auto px-2.5 sm:px-4 py-4 sm:py-8">
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-        <div className="flex items-center gap-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-8">
+        <div className="flex items-start sm:items-center gap-3">
           <button 
             onClick={onBack}
-            className="p-2.5 rounded-xl bg-slate-800/80 border border-slate-700 hover:bg-slate-700 text-slate-300 transition-colors"
+            className="p-2 sm:p-2.5 rounded-xl bg-slate-800/80 border border-slate-700 hover:bg-slate-700 text-slate-300 transition-colors flex-shrink-0"
             title="Back to Tools"
           >
-            <ArrowLeft className="w-5 h-5" />
+            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
           <div>
             <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-[10px] font-bold uppercase tracking-wider mb-1">
               <Shield className="w-3 h-3" />
               Master Control Center
             </div>
-            <h1 className="text-2xl font-black text-white flex items-center gap-2">
-              Super Admin Analytics & Management
+            <h1 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
+              Super Admin Analytics
             </h1>
             <p className="text-xs text-slate-400">Live platform telemetry, user conversion logs, and token controls.</p>
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
           <button
             onClick={handleCleanup}
-            className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 text-xs font-bold flex items-center gap-1.5 transition-colors"
+            className="flex-1 sm:flex-initial px-3 sm:px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
           >
             <Trash2 className="w-3.5 h-3.5 text-rose-400" />
-            Purge Expired Storage
+            Purge Storage
           </button>
           <button
             onClick={loadData}
-            className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold flex items-center gap-1.5 transition-colors shadow-lg shadow-indigo-600/30"
+            className="flex-1 sm:flex-initial px-3 sm:px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-colors shadow-lg shadow-indigo-600/30"
           >
             <RefreshCw className="w-3.5 h-3.5" />
-            Refresh Data
+            Refresh
           </button>
         </div>
       </div>
@@ -197,86 +197,86 @@ export const AdminDashboardPage: React.FC<AdminDashboardPageProps> = ({ onBack, 
 
       {/* Metrics Row */}
       {metrics && (
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-3 mb-8">
-          <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
-            <div className="flex items-center justify-between text-slate-400 mb-1.5">
-              <span className="text-[10px] font-bold uppercase tracking-wider">Registered Users</span>
-              <Users className="w-4 h-4 text-indigo-400" />
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 sm:gap-3 mb-6 sm:mb-8">
+          <div className="bg-slate-900 border border-slate-800 p-3 sm:p-4 rounded-xl sm:rounded-2xl">
+            <div className="flex items-center justify-between text-slate-400 mb-1">
+              <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Registered Users</span>
+              <Users className="w-3.5 h-3.5 text-indigo-400" />
             </div>
-            <div className="text-2xl font-black text-white">{metrics.total_users}</div>
+            <div className="text-xl sm:text-2xl font-black text-white">{metrics.total_users}</div>
           </div>
 
-          <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
-            <div className="flex items-center justify-between text-slate-400 mb-1.5">
-              <span className="text-[10px] font-bold uppercase tracking-wider">Active Today</span>
-              <Activity className="w-4 h-4 text-emerald-400" />
+          <div className="bg-slate-900 border border-slate-800 p-3 sm:p-4 rounded-xl sm:rounded-2xl">
+            <div className="flex items-center justify-between text-slate-400 mb-1">
+              <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Active Today</span>
+              <Activity className="w-3.5 h-3.5 text-emerald-400" />
             </div>
-            <div className="text-2xl font-black text-white">{metrics.active_users_today}</div>
+            <div className="text-xl sm:text-2xl font-black text-white">{metrics.active_users_today}</div>
           </div>
 
-          <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
-            <div className="flex items-center justify-between text-slate-400 mb-1.5">
-              <span className="text-[10px] font-bold uppercase tracking-wider">Today's Conversions</span>
-              <FileText className="w-4 h-4 text-rose-400" />
+          <div className="bg-slate-900 border border-slate-800 p-3 sm:p-4 rounded-xl sm:rounded-2xl">
+            <div className="flex items-center justify-between text-slate-400 mb-1">
+              <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Today Conversions</span>
+              <FileText className="w-3.5 h-3.5 text-rose-400" />
             </div>
-            <div className="text-2xl font-black text-white">{metrics.today_conversions}</div>
+            <div className="text-xl sm:text-2xl font-black text-white">{metrics.today_conversions}</div>
           </div>
 
-          <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
-            <div className="flex items-center justify-between text-slate-400 mb-1.5">
-              <span className="text-[10px] font-bold uppercase tracking-wider">Total Lifetime Files</span>
-              <FileText className="w-4 h-4 text-amber-400" />
+          <div className="bg-slate-900 border border-slate-800 p-3 sm:p-4 rounded-xl sm:rounded-2xl">
+            <div className="flex items-center justify-between text-slate-400 mb-1">
+              <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Total Lifetime</span>
+              <FileText className="w-3.5 h-3.5 text-amber-400" />
             </div>
-            <div className="text-2xl font-black text-white">{metrics.total_conversions_lifetime}</div>
+            <div className="text-xl sm:text-2xl font-black text-white">{metrics.total_conversions_lifetime}</div>
           </div>
 
-          <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
-            <div className="flex items-center justify-between text-slate-400 mb-1.5">
-              <span className="text-[10px] font-bold uppercase tracking-wider">Tokens Claimed</span>
-              <Coins className="w-4 h-4 text-amber-400" />
+          <div className="bg-slate-900 border border-slate-800 p-3 sm:p-4 rounded-xl sm:rounded-2xl">
+            <div className="flex items-center justify-between text-slate-400 mb-1">
+              <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Tokens Claimed</span>
+              <Coins className="w-3.5 h-3.5 text-amber-400" />
             </div>
-            <div className="text-2xl font-black text-white">{metrics.total_tokens_claimed}</div>
+            <div className="text-xl sm:text-2xl font-black text-white">{metrics.total_tokens_claimed}</div>
           </div>
 
-          <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
-            <div className="flex items-center justify-between text-slate-400 mb-1.5">
-              <span className="text-[10px] font-bold uppercase tracking-wider">Server Storage</span>
-              <HardDrive className="w-4 h-4 text-cyan-400" />
+          <div className="bg-slate-900 border border-slate-800 p-3 sm:p-4 rounded-xl sm:rounded-2xl">
+            <div className="flex items-center justify-between text-slate-400 mb-1">
+              <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Storage Used</span>
+              <HardDrive className="w-3.5 h-3.5 text-cyan-400" />
             </div>
-            <div className="text-2xl font-black text-white">{metrics.storage?.total_mb ?? 0} <span className="text-xs font-normal text-slate-400">MB</span></div>
+            <div className="text-xl sm:text-2xl font-black text-white">{metrics.storage?.total_mb ?? 0} <span className="text-[10px] font-normal text-slate-400">MB</span></div>
           </div>
         </div>
       )}
 
-      {/* Tabs Bar */}
-      <div className="flex items-center gap-2 border-b border-slate-800 pb-3 mb-6">
+      {/* Tabs Bar with Mobile Smooth Horizontal Scroll */}
+      <div className="flex items-center gap-2 border-b border-slate-800 pb-3 mb-6 overflow-x-auto no-scrollbar flex-nowrap">
         <button
           onClick={() => setActiveTab('conversions')}
-          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+          className={`whitespace-nowrap flex-shrink-0 px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
             activeTab === 'conversions'
               ? 'bg-rose-600 text-white shadow-lg shadow-rose-600/25'
               : 'text-slate-400 hover:text-white hover:bg-slate-800'
           }`}
         >
           <Activity className="w-4 h-4" />
-          Live Conversion Logs ({conversionLogs.length})
+          Live Conversions ({conversionLogs.length})
         </button>
 
         <button
           onClick={() => setActiveTab('claims')}
-          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+          className={`whitespace-nowrap flex-shrink-0 px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
             activeTab === 'claims'
               ? 'bg-amber-600 text-white shadow-lg shadow-amber-600/25'
               : 'text-slate-400 hover:text-white hover:bg-slate-800'
           }`}
         >
           <Coins className="w-4 h-4" />
-          Task Claim Logs ({claimLogs.length})
+          Task Claims ({claimLogs.length})
         </button>
 
         <button
           onClick={() => setActiveTab('users')}
-          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+          className={`whitespace-nowrap flex-shrink-0 px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
             activeTab === 'users'
               ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/25'
               : 'text-slate-400 hover:text-white hover:bg-slate-800'
@@ -288,14 +288,14 @@ export const AdminDashboardPage: React.FC<AdminDashboardPageProps> = ({ onBack, 
 
         <button
           onClick={() => setActiveTab('settings')}
-          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+          className={`whitespace-nowrap flex-shrink-0 px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
             activeTab === 'settings'
               ? 'bg-slate-700 text-white shadow-lg'
               : 'text-slate-400 hover:text-white hover:bg-slate-800'
           }`}
         >
           <Sliders className="w-4 h-4" />
-          Platform Controls
+          Controls
         </button>
       </div>
 

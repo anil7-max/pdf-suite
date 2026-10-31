@@ -22,7 +22,8 @@ class Settings:
     DEFAULT_ADMIN_PASSWORD: str = os.getenv("ADMIN_PASSWORD", "Admin@123456")
     DEFAULT_ADMIN_PHONE: str = os.getenv("ADMIN_PHONE", "+919999999999")
     
-    # Database
-    DATABASE_URL: str = os.getenv("DATABASE_URL", "sqlite:///./pdf_suite.db")
+    # Database - Supports SQLite and PostgreSQL (with auto postgres:// fix)
+    _raw_db_url: str = os.getenv("DATABASE_URL", "sqlite:///./pdf_suite.db")
+    DATABASE_URL: str = _raw_db_url.replace("postgres://", "postgresql://", 1) if _raw_db_url.startswith("postgres://") else _raw_db_url
 
 settings = Settings()

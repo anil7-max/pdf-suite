@@ -34,15 +34,15 @@ export const PdfToWordPage: React.FC<PdfToWordPageProps> = ({ onBack, onOpenPayw
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8">
+    <div className="max-w-3xl mx-auto px-2.5 sm:px-4 py-4 sm:py-8">
       <button 
         onClick={onBack}
-        className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-400 hover:text-white mb-6 transition-colors"
+        className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-400 hover:text-white mb-4 sm:mb-6 transition-colors p-1"
       >
-        <ArrowLeft className="w-4 h-4" /> Back to Cinematic Dashboard
+        <ArrowLeft className="w-4 h-4" /> Back to Tools
       </button>
 
-      <div className="relative bg-slate-900/80 rounded-3xl p-8 border border-white/10 shadow-[0_0_50px_rgba(59,130,246,0.15)] backdrop-blur-2xl">
+      <div className="relative bg-slate-900/80 rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-white/10 shadow-[0_0_50px_rgba(59,130,246,0.15)] backdrop-blur-2xl">
         <div className="flex items-center gap-3.5 mb-6">
           <div className="w-12 h-12 rounded-2xl bg-blue-500/20 border border-blue-500/30 text-blue-400 flex items-center justify-center shadow-lg">
             <FileText className="w-6 h-6" />

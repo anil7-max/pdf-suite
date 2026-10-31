@@ -95,44 +95,44 @@ export const HomePage: React.FC<HomePageProps> = ({ user, onNavigate, onOpenPayw
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8 relative">
+    <div className="max-w-7xl mx-auto px-2.5 sm:px-4 py-4 sm:py-8 relative">
       {/* Main Container */}
-      <div className="relative rounded-3xl bg-slate-900/60 border border-slate-800 shadow-2xl backdrop-blur-xl overflow-hidden p-6 sm:p-10">
+      <div className="relative rounded-2xl sm:rounded-3xl bg-slate-900/60 border border-slate-800 shadow-2xl backdrop-blur-xl overflow-hidden p-4 sm:p-8 md:p-10">
         
         {/* Hero Section */}
-        <div className="text-center max-w-3xl mx-auto mb-12 pt-2">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-xs font-semibold text-slate-300 mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 pt-1 sm:pt-2">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-[11px] sm:text-xs font-semibold text-slate-300 mb-3 sm:mb-4">
             <Sparkles className="w-3.5 h-3.5 text-amber-400" />
             Professional Document & PDF Utilities
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight px-2">
             Every Document Tool, <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-pink-400 to-amber-400">
               Fast, Private & Simple
             </span>
           </h1>
 
-          <p className="mt-4 text-sm sm:text-base text-slate-400 max-w-xl mx-auto leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-xs sm:text-base text-slate-400 max-w-xl mx-auto leading-relaxed px-2">
             Convert, compress, extract, and archive PDFs, Word documents, images, and ZIP files with enterprise-grade quality.
           </p>
 
           {/* Token Indicator Banner */}
-          <div className="mt-6 inline-flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 shadow-lg backdrop-blur-xl text-xs">
+          <div className="mt-4 sm:mt-6 inline-flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 px-4 sm:px-5 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 shadow-lg backdrop-blur-xl text-xs w-full sm:w-auto">
             {isSuperAdmin ? (
               <span className="text-amber-300 font-extrabold flex items-center gap-1.5">
                 👑 Super Admin Console (Unlimited Conversions)
               </span>
             ) : (
-              <div className="flex flex-wrap items-center justify-center gap-2 text-slate-300 font-medium">
-                <span>🪙 Available Balance: <strong className="text-amber-400 font-bold">{user?.tokens_balance ?? 7} Conversion Tokens</strong></span>
-                <span className="text-slate-500">•</span>
-                <span className="text-emerald-400 font-semibold">100% Free & Open-Source</span>
+              <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 text-slate-300 font-medium text-center">
+                <span>🪙 Balance: <strong className="text-amber-400 font-bold">{user?.tokens_balance ?? 7} Tokens</strong></span>
+                <span className="text-slate-500 hidden xs:inline">•</span>
+                <span className="text-emerald-400 font-semibold">100% Free</span>
                 <button 
                   onClick={onOpenPaywall}
-                  className="text-amber-300 font-black hover:text-amber-200 ml-2 inline-flex items-center gap-1 bg-amber-500/20 border border-amber-500/30 px-3 py-1 rounded-xl transition-all"
+                  className="text-amber-300 font-black hover:text-amber-200 inline-flex items-center gap-1 bg-amber-500/20 border border-amber-500/30 px-2.5 py-1 rounded-xl transition-all ml-1"
                 >
-                  Earn Free Tokens ⚡ →
+                  Earn Tokens ⚡
                 </button>
               </div>
             )}
@@ -140,35 +140,35 @@ export const HomePage: React.FC<HomePageProps> = ({ user, onNavigate, onOpenPayw
         </div>
 
         {/* Grid of Tools with Cinematic Glow Borders */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-5">
           {tools.map((tool) => {
             const Icon = tool.icon;
             return (
               <div
                 key={tool.id}
                 onClick={() => onNavigate(tool.id)}
-                className={`group relative bg-slate-900/60 rounded-3xl p-6 border border-white/10 transition-all duration-300 cursor-pointer hover:-translate-y-1.5 hover:shadow-2xl ${tool.glow} overflow-hidden backdrop-blur-xl`}
+                className={`group relative bg-slate-900/60 rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-white/10 transition-all duration-300 cursor-pointer hover:-translate-y-1.5 hover:shadow-2xl ${tool.glow} overflow-hidden backdrop-blur-xl active:scale-[0.98]`}
               >
                 {/* Ambient glow inside card */}
                 <div className="absolute -top-12 -right-12 w-28 h-28 bg-white/5 rounded-full blur-2xl group-hover:bg-white/10 transition-all pointer-events-none" />
 
-                <div className="flex items-center justify-between mb-5">
-                  <div className={`w-12 h-12 rounded-2xl bg-gradient-to-tr ${tool.color} flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform`}>
-                    <Icon className="w-6 h-6" />
+                <div className="flex items-center justify-between mb-4 sm:mb-5">
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-tr ${tool.color} flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform`}>
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                   {tool.badge && (
-                    <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-300 group-hover:text-white transition-colors">
+                    <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-300 group-hover:text-white transition-colors">
                       {tool.badge}
                     </span>
                   )}
                 </div>
 
-                <h3 className="text-base font-extrabold text-white group-hover:text-rose-400 transition-colors flex items-center justify-between">
+                <h3 className="text-sm sm:text-base font-extrabold text-white group-hover:text-rose-400 transition-colors flex items-center justify-between">
                   {tool.title}
                   <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-rose-400 group-hover:translate-x-1 transition-all" />
                 </h3>
 
-                <p className="mt-2 text-xs text-slate-400 leading-relaxed line-clamp-3">
+                <p className="mt-1.5 sm:mt-2 text-xs text-slate-400 leading-relaxed line-clamp-2 sm:line-clamp-3">
                   {tool.desc}
                 </p>
               </div>

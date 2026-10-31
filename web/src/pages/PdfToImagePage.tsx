@@ -35,34 +35,34 @@ export const PdfToImagePage: React.FC<PdfToImagePageProps> = ({ onBack, onOpenPa
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8">
+    <div className="max-w-4xl mx-auto px-2.5 sm:px-4 py-4 sm:py-8">
       <button 
         onClick={onBack}
-        className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-500 hover:text-slate-900 mb-6 transition-colors"
+        className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-400 hover:text-white mb-4 sm:mb-6 transition-colors p-1"
       >
-        <ArrowLeft className="w-4 h-4" /> Back to All Tools
+        <ArrowLeft className="w-4 h-4" /> Back to Tools
       </button>
 
-      <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
+      <div className="bg-slate-900/80 backdrop-blur-2xl rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-white/10 shadow-2xl text-white">
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center">
-            <Files className="w-6 h-6" />
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-600 text-white flex items-center justify-center shadow-lg shadow-amber-500/20 flex-shrink-0">
+            <Files className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
           <div>
-            <h1 className="text-2xl font-black text-slate-900">PDF to Image (JPG/PNG)</h1>
-            <p className="text-sm text-slate-500">Extract every page of your PDF into high-resolution JPG images.</p>
+            <h1 className="text-xl sm:text-2xl font-black text-white">PDF to Image (JPG/PNG)</h1>
+            <p className="text-xs sm:text-sm text-slate-400">Extract every page of your PDF into high-resolution JPG images.</p>
           </div>
         </div>
 
         {error && (
-          <div className="mb-6 p-4 rounded-xl bg-red-50 text-red-700 text-sm border border-red-200 font-medium">
+          <div className="mb-6 p-3.5 rounded-xl bg-rose-500/10 text-rose-300 text-xs sm:text-sm border border-rose-500/30 font-medium">
             {error}
           </div>
         )}
 
         {!result ? (
           <div>
-            <div className="border-2 border-dashed border-slate-300 hover:border-amber-500 rounded-2xl p-10 text-center transition-colors bg-slate-50/50">
+            <div className="border-2 border-dashed border-white/15 hover:border-amber-500/50 rounded-2xl p-6 sm:p-10 text-center transition-all bg-white/[0.02]">
               <input 
                 type="file" 
                 accept="application/pdf"
@@ -71,30 +71,30 @@ export const PdfToImagePage: React.FC<PdfToImagePageProps> = ({ onBack, onOpenPa
                 id="pdf-upload" 
               />
               <label htmlFor="pdf-upload" className="cursor-pointer flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mb-3">
-                  <UploadCloud className="w-8 h-8" />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/20 flex items-center justify-center mb-3">
+                  <UploadCloud className="w-6 h-6 sm:w-8 sm:h-8" />
                 </div>
-                <span className="font-bold text-slate-800 text-base">
-                  {file ? file.name : 'Select PDF file or drag and drop here'}
+                <span className="font-bold text-white text-sm sm:text-base max-w-xs truncate">
+                  {file ? file.name : 'Tap to select PDF file'}
                 </span>
-                <span className="text-xs text-slate-400 mt-1">Up to 25MB for free tier</span>
+                <span className="text-[11px] sm:text-xs text-slate-400 mt-1">Converts all pages to 300 DPI high-res JPGs</span>
               </label>
             </div>
 
             {file && (
               <div className="mt-6">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm font-semibold text-slate-700">Resolution / Quality:</span>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                  <span className="text-xs font-bold text-slate-300 uppercase tracking-wider">Resolution Quality:</span>
                   <div className="flex gap-2">
                     {[100, 150, 300].map((v) => (
                       <button
                         key={v}
                         onClick={() => setDpi(v)}
-                        className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
-                          dpi === v ? 'bg-amber-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                        className={`flex-1 sm:flex-initial px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                          dpi === v ? 'bg-amber-500 text-white shadow-md' : 'bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10'
                         }`}
                       >
-                        {v} DPI {v === 300 ? '(Pro)' : ''}
+                        {v} DPI
                       </button>
                     ))}
                   </div>
@@ -103,7 +103,7 @@ export const PdfToImagePage: React.FC<PdfToImagePageProps> = ({ onBack, onOpenPa
                 <button
                   onClick={handleConvert}
                   disabled={converting}
-                  className="w-full py-3.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-base shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 transition-all"
+                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-bold text-sm sm:text-base shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 transition-all active:scale-95"
                 >
                   {converting ? 'Extracting Pages into Images...' : 'Convert to Images (ZIP)'}
                 </button>
@@ -111,24 +111,24 @@ export const PdfToImagePage: React.FC<PdfToImagePageProps> = ({ onBack, onOpenPa
             )}
           </div>
         ) : (
-          <div className="text-center py-8">
-            <div className="w-16 h-16 mx-auto rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4">
-              <CheckCircle2 className="w-9 h-9" />
+          <div className="text-center py-6 sm:py-8">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mb-4">
+              <CheckCircle2 className="w-8 h-8 sm:w-9 sm:h-9" />
             </div>
-            <h2 className="text-2xl font-black text-slate-900">Images Extracted!</h2>
-            <p className="text-sm text-slate-500 mt-1">Extracted <strong>{result.page_count} pages</strong> into a ZIP archive.</p>
+            <h2 className="text-xl sm:text-2xl font-black text-white">Images Extracted!</h2>
+            <p className="text-xs sm:text-sm text-slate-400 mt-1">Extracted <strong>{result.page_count} pages</strong> into a ZIP archive.</p>
 
             <div className="mt-6 flex flex-col sm:flex-row justify-center gap-3">
               <a
                 href={convertService.getDownloadUrl(result.filename)}
                 download
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-base shadow-lg shadow-amber-500/25 transition-all"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 hover:opacity-90 text-white font-bold text-sm sm:text-base shadow-lg shadow-amber-500/25 transition-all"
               >
-                <Download className="w-5 h-5" /> Download Images ZIP
+                <Download className="w-4 h-4 sm:w-5 sm:h-5" /> Download Images ZIP
               </a>
               <button
                 onClick={() => { setResult(null); setFile(null); }}
-                className="px-6 py-3.5 rounded-xl border border-slate-300 font-bold text-slate-700 hover:bg-slate-50 transition-colors"
+                className="px-6 py-3.5 rounded-xl border border-white/15 font-bold text-slate-300 hover:bg-white/5 transition-colors text-sm"
               >
                 Convert Another PDF
               </button>

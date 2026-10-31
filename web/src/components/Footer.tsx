@@ -10,7 +10,7 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAuth, user }) => {
   return (
-    <footer className="relative z-10 border-t border-slate-800 bg-slate-950/90 text-slate-400 py-12">
+    <footer className="relative z-10 border-t border-slate-800 bg-slate-950/90 text-slate-400 py-8 sm:py-12 safe-bottom">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Info */}
